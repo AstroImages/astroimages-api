@@ -15,10 +15,10 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-def register_endpoints(app):
+def register_endpoints(app, api):
 
-    #task_handler.register_endpoints('/todo/api/', app)
-    fits_handler.register_endpoints('/api/', app)
+    #task_handler.register_endpoints('/todo/api/', app, api)
+    fits_handler.register_endpoints('/api', app, api)
 
     app._register_error_handler(None, 404, not_found)
 
