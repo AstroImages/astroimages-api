@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from flask import Flask, jsonify
 from flask import abort
 from flask import make_response
@@ -21,8 +19,6 @@ tasks = [
         'done': False
     }
 ]
-
-
 
 def make_public_task(task):
     new_task = {}
@@ -78,3 +74,12 @@ def delete_task(task_id):
     tasks.remove(task[0])
     return jsonify({'result': True})
 
+def register_endpoints(api_endpoint, app):
+    version = 'v1'
+    method_url = f'{api_endpoint}/{version}/tasks'
+    
+    app.add_url_rule(f'{method_url}', 'get_tasks', view_func=get_tasks, methods=['GET'])
+    app.add_url_rule(f'{method_url}/<int:task_id>', 'get_task', view_func=get_task, methods=['GET'])
+    app.add_url_rule(f'{method_url}', 'create_task', view_func=create_task, methods=['POST'])
+    app.add_url_rule(f'{method_url}/<int:task_id>', 'update_task', view_func=update_task, methods=['PUT'])
+    app.add_url_rule(f'{method_url}/<int:task_id>', 'delete_task', view_func=delete_task, methods=['DELETE'])
