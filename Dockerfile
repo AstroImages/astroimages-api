@@ -4,7 +4,7 @@ MAINTAINER Rodrigo de Souza "rsouza01@gmail.com"
 
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
-#RUN apt-get install -y python-pip python-dev
+ENV DOCKER_CONTAINER true
 
 RUN apt-get install -y curl python3.7 python3.7-dev python3.7-distutils
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
