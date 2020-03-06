@@ -26,9 +26,9 @@ Or run the docker image
     # build: 
     docker build -t astroimages-api:latest .
     # run silent
-    docker run -d -p 5000:5000 astroimages-api (Silent)
+    docker run -d -p 5000:5000 astroimages-api
     # run with output
-    docker run --rm -ti -p 5000:5000 astroimages-api (With output)
+    docker run --rm -ti -p 5000:5000 astroimages-api
 
 Try the endpoints:
 
