@@ -1,8 +1,28 @@
-# astroimages-api
+AstroImages API (astroimages-api)
+=================================
 
 REST API for listing processed images
 
-## Docker Image
+Usage
+-----
+
+Clone the repo:
+
+    git clone https://github.com/AstroImages/astroimages-api/
+    cd astroimages-api
+
+Create virtualenv:
+
+    virtualenv env
+    source env/bin/activate
+    pip3 install -r requirements.txt
+
+Run the server via CLI
+
+    ./start-server.sh
+    
+Or run the docker image
+
 - Build: docker build -t astroimages-api:latest .
 - Run: 
   - docker run -d -p 5000:5000 astroimages-api (Silent)
@@ -10,8 +30,22 @@ REST API for listing processed images
 - Test: ./tests/start-tests-fits.sh
 
 
+Try the endpoints:
+
+    ./tests/start-tests-fits.sh
+
+Swagger docs would be available at `http://localhost:5000/api/spec.html`
+
 ## References
 
 - https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
 
 - https://medium.com/ki-labs-engineering/designing-well-structured-rest-apis-with-flask-restplus-part-1-7e96f2da8850
+
+
+License
+-------
+
+MIT, see LICENSE file
+
+
