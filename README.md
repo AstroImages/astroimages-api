@@ -23,12 +23,12 @@ Run the server via CLI
     
 Or run the docker image
 
-- Build: docker build -t astroimages-api:latest .
-- Run: 
-  - docker run -d -p 5000:5000 astroimages-api (Silent)
-  - docker run --rm -ti -p 5000:5000 astroimages-api (With output)
-- Test: ./tests/start-tests-fits.sh
-
+    # build: 
+    docker build -t astroimages-api:latest .
+    # run silent
+    docker run -d -p 5000:5000 astroimages-api (Silent)
+    # run with output
+    docker run --rm -ti -p 5000:5000 astroimages-api (With output)
 
 Try the endpoints:
 
