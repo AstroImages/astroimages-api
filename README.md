@@ -42,7 +42,9 @@ Swagger docs would be available at `http://localhost:5000/api/spec.html`
 
 - https://medium.com/ki-labs-engineering/designing-well-structured-rest-apis-with-flask-restplus-part-1-7e96f2da8850
 
+ - https://medium.com/free-code-camp/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
 
+ 
 License
 -------
 
