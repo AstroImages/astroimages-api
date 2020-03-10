@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import logging.config
 from logging.config import dictConfig
 
 import os
@@ -7,31 +8,34 @@ import os
 from flask import Flask
 from flask_restplus import Api
 
+import settings as settings
 import routes as routes
 
 
 app = Flask(__name__)
 api = Api(app=app)
 
-routes.register_endpoints(app, api)
+logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), '../logging.conf'))
+logging.config.fileConfig(logging_conf_path)
+log = logging.getLogger(__name__)
 
 
-if __name__ == '__main__':
-    dictConfig({
-        'version': 1,
-        'formatters': {'default': {
-            'format': '[%(asctime)s] %(levelname)s - %(module)s: %(message)s',
-        }},
-        'handlers': {'wsgi': {
-            'class': 'logging.StreamHandler',
-            'stream': 'ext://flask.logging.wsgi_errors_stream',
-            'formatter': 'default'
-        }},
-        'root': {
-            'level': 'INFO',
-            'handlers': ['wsgi']
-        }
-    })
+
+def configure_app(flask_app):
+    flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
+    flask_app.config['SWAGGER_UI_DOC_EXPANSION'] = settings.RESTPLUS_SWAGGER_UI_DOC_EXPANSION
+    flask_app.config['RESTPLUS_VALIDATE'] = settings.RESTPLUS_VALIDATE
+    flask_app.config['RESTPLUS_MASK_SWAGGER'] = settings.RESTPLUS_MASK_SWAGGER
+    flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
+
+def initialize_app(flask_app):
+    configure_app(flask_app)
+    routes.register_endpoints(app, api)
+
+
+def main():
+    initialize_app(app)
+    log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
 
     DOCKER_CONTAINER = os.environ.get('DOCKER_CONTAINER', False)
 
@@ -41,5 +45,8 @@ if __name__ == '__main__':
     else:
         app.logger.info('Running standalone container')
         app.run(debug=True)
+
+if __name__ == '__main__':
+    main()
     
     
