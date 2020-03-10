@@ -32,6 +32,7 @@ def initialize_app(flask_app):
 def main():
     initialize_app(app)
     log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
+    log.info('FITS_FOLDER: {}'.format(os.environ['FITS_FOLDER']))
 
     DOCKER_CONTAINER = os.environ.get('DOCKER_CONTAINER', False)
 
