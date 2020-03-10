@@ -2,6 +2,4 @@
 
 clear
 
-source ./env/bin/activate
-
-./src/app.py
+./astroimages_api/app.py

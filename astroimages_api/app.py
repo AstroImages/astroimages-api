@@ -1,25 +1,22 @@
 #!/usr/bin/env python
 
 import logging.config
-from logging.config import dictConfig
 
 import os
 
 from flask import Flask
 from flask_restplus import Api
 
-import settings as settings
-import routes as routes
+import astroimages_api.settings as settings
+import astroimages_api.routes as routes
 
 
 app = Flask(__name__)
 api = Api(app=app)
 
-logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), '../logging.conf'))
+logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), './logging.conf'))
 logging.config.fileConfig(logging_conf_path)
 log = logging.getLogger(__name__)
-
-
 
 def configure_app(flask_app):
     flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
@@ -31,7 +28,6 @@ def configure_app(flask_app):
 def initialize_app(flask_app):
     configure_app(flask_app)
     routes.register_endpoints(app, api)
-
 
 def main():
     initialize_app(app)
