@@ -1,30 +1,25 @@
-from flask import Flask, jsonify
-from flask import abort
-from flask import make_response
-from flask import request
-from flask import url_for
-from flask_httpauth import HTTPBasicAuth
+import os
 
-fits_files = [
-    {
-        'id': 1,
-        'title': u'NGC3051',
-        'description': u'NGC3051',
-        'path': '/sdsdf/sdfsdfs/NGC3051.fits'
-    },
-    {
-        'id': 2,
-        'title': u'NGC4040',
-        'description': u'NGC4040',
-        'path': '/sdsdf/sdfsdfs/NGC4040.fits'
-    }
-]
+from flask import abort
+from flask import url_for
+from flask import jsonify
+
+from astroimages_api.util.file_system import list_files_in_folder
+from astroimages_api.util.fits.fits_util import extract_metadata_from_fits_file
+
+
+def get_fits_files_from_folder():
+    folder = os.environ['FITS_FOLDER']
+    fits_file_names = list_files_in_folder(folder, '.fits')
+
+    return [extract_metadata_from_fits_file(fits_file_name) for fits_file_name in fits_file_names]
 
 
 def make_public_fits_file(fits_file):
     new_fits_file = {}
     for field in fits_file:
         if field == 'id':
+            new_fits_file['id'] = fits_file['id']
             new_fits_file['uri'] = url_for('get_fits_file', fits_file_id=fits_file['id'], _external=True)
         else:
             new_fits_file[field] = fits_file[field]
@@ -32,10 +27,17 @@ def make_public_fits_file(fits_file):
 
 
 def get_fits_files():
-    return jsonify({'fits_file': [make_public_fits_file(fits_file) for fits_file in fits_files]})
+    fits_files = get_fits_files_from_folder()
+    return jsonify(
+        {
+            'fits_files': [
+                make_public_fits_file(fits_file) for fits_file in fits_files]
+        }
+    )
 
 
 def get_fits_file(fits_file_id):
+    fits_files = get_fits_files_from_folder()
     fits_file = [fits_file for fits_file in fits_files if fits_file['id'] == fits_file_id]
     if len(fits_file) == 0:
         abort(404)
