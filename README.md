@@ -34,8 +34,10 @@ Try the endpoints:
 
     ./tests/start-tests-fits.sh
 
-## Unit testing
-    
+## Testing
+
+To run unit tests:
+
     python -m unittest discover test/unit -v
 
 
@@ -50,7 +52,7 @@ Try the endpoints:
  ### Testing
  - https://realpython.com/python-testing/
  - https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
-
+ - https://pythontesting.net/framework/unittest/unittest-introduction
 
 License
 -------

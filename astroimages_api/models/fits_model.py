@@ -1,5 +1,4 @@
 import json
-from json import JSONEncoder
 
 class FitsFile:
     def __init__(self, id, title, description, path):
@@ -9,13 +8,4 @@ class FitsFile:
         self.path = path
 
     def __repr__(self):
-        return '<FitsFile %r>' % self.title
-
-
-
-# subclass JSONEncoder
-class FitsFileEncoder(JSONEncoder):
-    def default(self, o):
-        return o.__dict__
-
-
+        return json.dumps(self.__dict__)
