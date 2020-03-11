@@ -1,6 +1,8 @@
 AstroImages API (astroimages-api)
 =================================
 
+![Python application](https://github.com/AstroImages/astroimages-api/workflows/Astroimages-API/badge.svg?branch=master)
+
 REST API for listing processed images
 
 Usage
