@@ -8,7 +8,7 @@ from flask import url_for
 from flask_httpauth import HTTPBasicAuth
 
 import api.task_handler as task_handler
-import api.fits_handler as fits_handler
+import api.fits_files.fits_handler as fits_handler
 
 
 def not_found(error):
