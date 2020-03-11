@@ -3,9 +3,9 @@ import json
 
 from astroimages_api.models.fits_model import FitsFile
 
-class TestFitsFile(unittest.TestCase):
+class TestFitsFileModel(unittest.TestCase):
 
-    def test_json(self):
+    def test_FitsFileModel_json(self):
         fits = FitsFile('id', 'title', 'description', 'path')
         should_be = '{"id": "id", "title": "title", "description": "description", "path": "path"}'
 
