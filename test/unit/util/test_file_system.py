@@ -3,7 +3,6 @@ import unittest
 import tempfile
 from astroimages_api.util.file_system import list_files_in_folder
 
-
 class TestUtilFunctions(unittest.TestCase):
 
     def setUp(self):
