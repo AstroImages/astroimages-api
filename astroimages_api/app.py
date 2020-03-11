@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import logging.config
-from logging.config import dictConfig
 
 import os
 
@@ -15,11 +14,9 @@ import routes as routes
 app = Flask(__name__)
 api = Api(app=app)
 
-logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), '../logging.conf'))
+logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), './logging.conf'))
 logging.config.fileConfig(logging_conf_path)
 log = logging.getLogger(__name__)
-
-
 
 def configure_app(flask_app):
     flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
@@ -32,10 +29,10 @@ def initialize_app(flask_app):
     configure_app(flask_app)
     routes.register_endpoints(app, api)
 
-
 def main():
     initialize_app(app)
     log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
+    log.info('FITS_FOLDER: {}'.format(os.environ['FITS_FOLDER']))
 
     DOCKER_CONTAINER = os.environ.get('DOCKER_CONTAINER', False)
 

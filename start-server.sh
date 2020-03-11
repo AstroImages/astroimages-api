@@ -2,6 +2,6 @@
 
 clear
 
-source ./env/bin/activate
+export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
 
-./src/app.py
+./astroimages_api/app.py

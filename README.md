@@ -34,17 +34,26 @@ Try the endpoints:
 
     ./tests/start-tests-fits.sh
 
-Swagger docs would be available at `http://localhost:5000/api/spec.html`
+## Testing
+
+To run unit tests:
+
+    python -m unittest discover test/unit -v
+
 
 ## References
 
+### General
 - https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask
-
 - https://medium.com/ki-labs-engineering/designing-well-structured-rest-apis-with-flask-restplus-part-1-7e96f2da8850
+- http://michal.karzynski.pl/blog/2016/06/19/building-beautiful-restful-apis-using-flask-swagger-ui-flask-restplus/
+- https://medium.com/free-code-camp/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
 
- - https://medium.com/free-code-camp/structuring-a-flask-restplus-web-service-for-production-builds-c2ec676de563
+ ### Testing
+ - https://realpython.com/python-testing/
+ - https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+ - https://pythontesting.net/framework/unittest/unittest-introduction
 
- 
 License
 -------
 
