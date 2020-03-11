@@ -1,6 +1,8 @@
 AstroImages API (astroimages-api)
 =================================
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 ![Python application](https://github.com/AstroImages/astroimages-api/workflows/Astroimages-API/badge.svg?branch=master)
 
 REST API for listing processed images
