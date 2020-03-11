@@ -4,6 +4,7 @@ AstroImages API (astroimages-api)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 ![Python application](https://github.com/AstroImages/astroimages-api/workflows/Astroimages-API/badge.svg?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AstroImages_astroimages-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=AstroImages_astroimages-api)
 
 REST API for listing processed images
 
