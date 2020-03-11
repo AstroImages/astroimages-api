@@ -16,8 +16,7 @@ setup(
     author_email='rsouza01@gmail.com',
     url='https://github.com/AstroImages/astroimages-api',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
-
+    packages=find_packages(exclude=('tests', 'docs')),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

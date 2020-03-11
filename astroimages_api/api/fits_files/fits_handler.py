@@ -9,13 +9,13 @@ fits_files = [
     {
         'id': 1,
         'title': u'NGC3051',
-        'description': u'NGC3051', 
+        'description': u'NGC3051',
         'path': '/sdsdf/sdfsdfs/NGC3051.fits'
     },
     {
         'id': 2,
         'title': u'NGC4040',
-        'description': u'NGC4040', 
+        'description': u'NGC4040',
         'path': '/sdsdf/sdfsdfs/NGC4040.fits'
     }
 ]
@@ -33,6 +33,7 @@ def make_public_fits_file(fits_file):
 
 def get_fits_files():
     return jsonify({'fits_file': [make_public_fits_file(fits_file) for fits_file in fits_files]})
+
 
 def get_fits_file(fits_file_id):
     fits_file = [fits_file for fits_file in fits_files if fits_file['id'] == fits_file_id]

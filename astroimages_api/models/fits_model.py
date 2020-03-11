@@ -1,5 +1,6 @@
 import json
 
+
 class FitsFile:
     def __init__(self, id, title, description, path):
         self.id = id

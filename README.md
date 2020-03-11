@@ -54,6 +54,9 @@ To run unit tests:
  - https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
  - https://pythontesting.net/framework/unittest/unittest-introduction
 
+ ### Github actions
+  - https://sourcery.ai/blog/github-actions/
+
 License
 -------
 

@@ -3,6 +3,7 @@ import json
 
 from astroimages_api.models.fits_model import FitsFile
 
+
 class TestFitsFileModel(unittest.TestCase):
 
     def test_FitsFileModel_json(self):
