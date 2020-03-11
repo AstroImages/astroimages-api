@@ -34,6 +34,10 @@ Try the endpoints:
 
     ./tests/start-tests-fits.sh
 
+## Unit testing
+    
+    python -m unittest discover test/unit -v
+
 
 ## References
 
