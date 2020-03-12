@@ -92,6 +92,7 @@ Give a ⭐️ if this project helped you!
  - https://www.patricksoftwareblog.com/unit-testing-a-flask-application/ 
  - https://dev.to/paurakhsharma/flask-rest-api-part-6-testing-rest-apis-4lla 
  - https://pybit.es/simple-flask-api.html
+  - https://fgimian.github.io/blog/2014/04/10/using-the-python-mock-library-to-fake-regular-functions-during-tests/
 
  
  ### Github actions
