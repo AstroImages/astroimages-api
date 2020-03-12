@@ -14,37 +14,56 @@ Usage
 
 Clone the repo:
 
-    git clone https://github.com/AstroImages/astroimages-api/
-    cd astroimages-api
+```console
+$ git clone https://github.com/AstroImages/astroimages-api/
+$ cd astroimages-api
+```
+
 
 Create virtualenv:
 
-    virtualenv -p python3 env
-    source env/bin/activate
-    pip3 install -r requirements.txt
+```console
+$ virtualenv -p python3 env
+$ source env/bin/activate
+$ pip3 install -r requirements.txt
+```
+
+Activate the virtual environment:
+
+```console
+$ source env.sh
+```
 
 Run the server via CLI
 
-    ./start-server.sh
+```console
+(env) $ ./start-server.sh
+```
     
 Or run the docker image
 
-    # build: 
-    docker build -t astroimages-api:latest .
-    # run silent
-    docker run -d -p 5000:5000 astroimages-api
-    # run with output
-    docker run --rm -ti -p 5000:5000 astroimages-api
+```console
+(env) $ # build: 
+(env) $ docker build -t astroimages-api:latest .
+(env) $ # run silent
+(env) $ docker run -d -p 5000:5000 astroimages-api
+(env) $ # run with output
+(env) $ docker run --rm -ti -p 5000:5000 astroimages-api
+```
 
 Try the endpoints:
 
-    ./tests/start-tests-fits.sh
+```console
+(env) $ ./tests/start-tests-fits.sh
+```
 
 ## Testing
 
 To run unit tests:
 
-    python -m unittest discover test/unit -v
+```console
+(env) $ python -m unittest discover test/unit -v
+```
 
 
 ## References

@@ -5,7 +5,7 @@ from flask import url_for
 from flask import jsonify
 
 from astroimages_api.util.file_system import list_files_in_folder
-from astroimages_api.util.fits.fits_util import extract_metadata_from_fits_file
+from astroimages_fits.fits_util_functions import extract_metadata_from_fits_file
 
 
 def get_fits_files_from_folder():
