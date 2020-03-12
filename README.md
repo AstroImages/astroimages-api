@@ -64,7 +64,6 @@ To run unit tests:
 (env) $ python -m unittest discover test/unit -v
 ```
 
-
 ## Author
 
 **Rodrigo de Souza**
@@ -90,6 +89,7 @@ Give a ⭐️ if this project helped you!
  - https://realpython.com/python-testing/
  - https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
  - https://pythontesting.net/framework/unittest/unittest-introduction
+ - https://www.patricksoftwareblog.com/unit-testing-a-flask-application/ 
 
  ### Github actions
   - https://sourcery.ai/blog/github-actions/
