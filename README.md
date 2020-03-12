@@ -20,18 +20,12 @@ $ cd astroimages-api
 ```
 
 
-Create virtualenv:
+Create and activate virtualenv:
 
 ```console
 $ virtualenv -p python3 env
-$ source env/bin/activate
-$ pip3 install -r requirements.txt
-```
-
-Activate the virtual environment:
-
-```console
 $ source env.sh
+(env) $ pip3 install -r requirements.txt
 ```
 
 Run the server via CLI
@@ -40,18 +34,23 @@ Run the server via CLI
 (env) $ ./start-server.sh
 ```
     
-Or run the docker image
+Or build the docker image
 
 ```console
-(env) $ # build: 
 (env) $ docker build -t astroimages-api:latest .
-(env) $ # run silent
+```
+Then run the docker image silently
+
+```console
 (env) $ docker run -d -p 5000:5000 astroimages-api
-(env) $ # run with output
+```
+Or verbose
+
+```console
 (env) $ docker run --rm -ti -p 5000:5000 astroimages-api
 ```
 
-Try the endpoints:
+And finally try the endpoints:
 
 ```console
 (env) $ ./tests/start-tests-fits.sh
