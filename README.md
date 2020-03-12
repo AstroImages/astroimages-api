@@ -65,6 +65,19 @@ To run unit tests:
 ```
 
 
+## Author
+
+**Rodrigo de Souza**
+
+* Website: http://www.rodrigosouza.net.br
+* Github: [@rsouza01](https://github.com/rsouza01)
+* LinkedIn: [@rsouza01](https://linkedin.com/in/rsouza01)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+
 ## References
 
 ### General
