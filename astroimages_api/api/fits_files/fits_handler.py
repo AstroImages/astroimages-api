@@ -4,18 +4,9 @@ from flask import abort
 from flask import url_for
 from flask import jsonify
 
-from astroimages_api.util.file_system import list_files_in_folder
+# from astroimages_api.util.file_system import list_files_in_folder
 from astroimages_fits.fits_util_functions import extract_metadata_from_fits_file
 from astroimages_api.api.fits_files.fits_service import FitsFileService
-
-
-
-def get_fits_files_from_folder():
-    folder = os.environ['FITS_FOLDER']
-    fitsFileService = FitsFileService(folder)
-    fits_file_names = list_files_in_folder(folder, '.fits')
-
-    return [extract_metadata_from_fits_file(fits_file_name) for fits_file_name in fits_file_names]
 
 
 def make_public_fits_file(fits_file):
@@ -29,7 +20,16 @@ def make_public_fits_file(fits_file):
     return new_fits_file
 
 
+def get_fits_files_from_folder():
+    folder = os.environ['FITS_FOLDER']
+    fitsFileService = FitsFileService(folder)
+    fits_file_names = fitsFileService.get_fits_files_from_folder()
+
+    return [extract_metadata_from_fits_file(fits_file_name) for fits_file_name in fits_file_names]
+
+
 def get_fits_files():
+
     fits_files = get_fits_files_from_folder()
     return jsonify(
         {

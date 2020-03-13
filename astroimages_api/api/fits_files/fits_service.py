@@ -7,9 +7,7 @@ class FitsFileService:
         self.folder = folder
 
     def get_fits_files_from_folder(self):
-        fits_file_names = list_files_in_folder(self.folder, '.fits')
-
-        return [extract_metadata_from_fits_file(fits_file_name) for fits_file_name in fits_file_names]
+        return list_files_in_folder(self.folder, '.fits')
 
     def get_fits_files(self):
         return self.get_fits_files_from_folder()
