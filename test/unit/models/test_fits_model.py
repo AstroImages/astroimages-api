@@ -7,6 +7,7 @@ from astroimages_api.models.fits_model import FitsFile
 class TestFitsFileModel(unittest.TestCase):
 
     def test_FitsFileModel_json(self):
+        "Testing the FitsFileModel json conversion - Happy path."
         fits = FitsFile('id', 'title', 'description', 'path')
         should_be = '{"id": "id", "title": "title", "description": "description", "path": "path"}'
 
@@ -16,4 +17,5 @@ class TestFitsFileModel(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestFitsFileModel)
+    unittest.TextTestRunner(verbosity=2).run(suite)

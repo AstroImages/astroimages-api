@@ -2,7 +2,7 @@ from flask import jsonify
 from flask import make_response
 
 # import api.task_handler as task_handler
-import api.fits_files.fits_handler as fits_handler
+import astroimages_api.api.fits_files.fits_handler as fits_handler
 
 
 def not_found(error):

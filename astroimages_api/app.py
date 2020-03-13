@@ -7,8 +7,8 @@ import os
 from flask import Flask
 from flask_restplus import Api
 
-import settings as settings
-import routes as routes
+import astroimages_api.settings as settings
+import astroimages_api.routes as routes
 
 
 app = Flask(__name__)

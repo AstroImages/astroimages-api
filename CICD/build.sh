@@ -5,6 +5,8 @@ clear
 # exit when any command fails
 set -e
 
+export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
+
 echo "------------------------------------------------------------------"
 echo "UNIT TESTS"
 echo "------------------------------------------------------------------"
