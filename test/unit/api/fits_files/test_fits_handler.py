@@ -1,37 +1,44 @@
-# import unittest
-# import json
+import unittest
+import json
+from flask import current_app
 
-# import astroimages_api.api.fits_files.fits_handler as fits_handler
-# import astroimages_api.app as app
+import astroimages_api.api.fits_files.fits_handler as fits_handler
+import astroimages_api.server as server
 
-# class TestFitsFileHandler(unittest.TestCase):
+class TestFitsFileHandler(unittest.TestCase):
 
-#     def setUp(self):
-#         self.BASE_URL = 'http://localhost:5000/api/v1/fits-files'
-#         # self.BASE_URL = '/api/v1/fits-files'
-#         # self.flask_app = app.app.test_client()
-#         # self.flask_app.testing = True
+    # executed prior to each test
+    def setUp(self):
+        pass
 
-#     # def test_get_fits_files(self):
-#     #     "Testing the get_fits_files - Happy path."
-#     #     response = fits_handler.get_fits_files()
-#     #     print('RESPONSE = %s' + response)
+    # executed after each test
+    def tearDown(self):
+        pass
 
-#     # def test_get_fits_file(self):
-#     #     "Testing the get_fits_file - Happy path."
-#     #     response = fits_handler.get_fits_file(12)
-#     #     print('RESPONSE = %s' + response)
+    def test_get_fits_files(self):
+        "Testing the get_fits_files - Happy path."
 
-#     # def test_list(self):
-#     #     print('\n')
-#     #     response = self.flask_app.get(self.BASE_URL)
-#     #     print(str(response))
-#         # data = json.loads(response.get_data())
-#         # print(data)
-#         # if data is not None:
-#         #     self.assertEqual(response.status_code, 200)
+        with server.rest_app.test_client():
+            with server.rest_app.app_context():
+                response = fits_handler.get_fits_files()
+                json_data = response.get_json()
+                print('RESPONSE = %s' % json_data['fits_files'])
+
+    # def test_get_fits_file(self):
+    #     "Testing the get_fits_file - Happy path."
+    #     response = fits_handler.get_fits_file(12)
+    #     print('RESPONSE = %s' + response)
+
+    # def test_list(self):
+    #     print('\n')
+    #     response = self.flask_app.get(self.BASE_URL)
+    #     print(str(response))
+        # data = json.loads(response.get_data())
+        # print(data)
+        # if data is not None:
+        #     self.assertEqual(response.status_code, 200)
 
 
-# if __name__ == '__main__':
-#     suite = unittest.TestLoader().loadTestsFromTestCase(TestFitsFileHandler)
-#     unittest.TextTestRunner(verbosity=2).run(suite)
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestFitsFileHandler)
+    unittest.TextTestRunner(verbosity=2).run(suite)

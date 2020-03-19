@@ -1,5 +1,6 @@
 import unittest
 import hashlib
+import json
 
 from astroimages_api.api.fits_files.fits_service import FitsFileService
 
@@ -18,7 +19,6 @@ class TestFitsFileService(unittest.TestCase):
         fileName = b'/home/rsouza/Projects/AstroImages/FITS_FOLDER/FOCx38i0101t_c0f.fits'
 
         file = self.fitsFileService.get_fits_file(hashlib.md5(fileName).hexdigest(), True)
-        print(file)
 
         self.assertNotEqual(file, None)
         self.assertEqual(file['title'], 'FOCx38i0101t_c0f.fits')
