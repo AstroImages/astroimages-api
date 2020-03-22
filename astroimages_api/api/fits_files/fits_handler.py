@@ -40,4 +40,4 @@ def register_endpoints(api_endpoint, app, api):
     method_url = f'{api_endpoint}/{version}/fits-files'
 
     app.add_url_rule(f'{method_url}', 'get_fits_files', view_func=get_fits_files, methods=['GET'])
-    app.add_url_rule(f'{method_url}/<int:fits_file_id>', 'get_fits_file', view_func=get_fits_file, methods=['GET'])
+    app.add_url_rule(f'{method_url}/<string:fits_file_id>', 'get_fits_file', view_func=get_fits_file, methods=['GET'])
