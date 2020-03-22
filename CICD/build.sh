@@ -6,7 +6,8 @@ clear
 set -e
 
 export PYTHONPATH=$PYTHONPATH:../astroimages-fits/
-export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
+
+# export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
 
 echo "------------------------------------------------------------------"
 echo "UNIT TESTS"
