@@ -10,7 +10,8 @@ class TestFitsFileService(unittest.TestCase):
 
     def setUp(self):
         self.total_files_per_folder = 2
-        self.folder_handler, self.files_list = ftuf.create_empty_fits_files_on_temp_folder(self.total_files_per_folder)
+        self.folder_handler, self.files_list = ftuf.create_empty_fits_files_on_temp_folder(
+            self.total_files_per_folder)
 
         # print(self.files_list)
         # input("Press Enter to continue...")
