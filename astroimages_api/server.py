@@ -7,12 +7,12 @@ import os
 from flask import Flask
 from flask_restplus import Api
 
-import settings as settings
-import routes as routes
+import astroimages_api.settings as settings
+import astroimages_api.routes as routes
 
 
-app = Flask(__name__)
-api = Api(app=app)
+rest_app = Flask(__name__)
+api = Api(app=rest_app)
 
 logging_conf_path = os.path.normpath(os.path.join(os.path.dirname(__file__), './logging.conf'))
 logging.config.fileConfig(logging_conf_path)
@@ -29,22 +29,22 @@ def configure_app(flask_app):
 
 def initialize_app(flask_app):
     configure_app(flask_app)
-    routes.register_endpoints(app, api)
+    routes.register_endpoints(rest_app, api)
 
 
 def main():
-    initialize_app(app)
-    log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(app.config['SERVER_NAME']))
+    initialize_app(rest_app)
+    log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(rest_app.config['SERVER_NAME']))
     log.info('FITS_FOLDER: {}'.format(os.environ['FITS_FOLDER']))
 
     DOCKER_CONTAINER = os.environ.get('DOCKER_CONTAINER', False)
 
     if DOCKER_CONTAINER == 'true':
-        app.logger.info('Running inside container')
-        app.run(debug=True, host='0.0.0.0')
+        rest_app.logger.info('Running inside container')
+        rest_app.run(debug=True, host='0.0.0.0')
     else:
-        app.logger.info('Running standalone container')
-        app.run(debug=True)
+        rest_app.logger.info('Running standalone container')
+        rest_app.run(debug=True)
 
 
 if __name__ == '__main__':

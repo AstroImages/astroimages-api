@@ -2,6 +2,7 @@
 
 clear
 
+export PYTHONPATH=$PYTHONPATH:../astroimages-fits/
 export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
 
-./astroimages_api/app.py
+./astroimages_api/server.py

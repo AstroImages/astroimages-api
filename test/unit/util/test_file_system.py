@@ -3,6 +3,7 @@ import unittest
 import tempfile
 from astroimages_api.util.file_system import list_files_in_folder
 
+
 class TestUtilFunctions(unittest.TestCase):
 
     def setUp(self):
@@ -10,6 +11,7 @@ class TestUtilFunctions(unittest.TestCase):
         self.files_per_folder = 10
 
     def test_list_files_in_temporary_folder(self):
+        "Testing listing files in temporary folder - Happy path."
         folder = tempfile.mkdtemp()
 
         for i in range(0, self.files_per_folder):
@@ -21,12 +23,13 @@ class TestUtilFunctions(unittest.TestCase):
 
         self.assertEqual(len(files_in_folder), self.files_per_folder, "Should be %s" % self.files_per_folder)
 
-
     def test_list_files_in_folder_and_subfolders(self):
+        "Testing listing files in folder and subfolders - Happy path."
+
         folder = tempfile.mkdtemp()
 
         for i in range(0, self.folders_per_layer):
-            inner_folder = tempfile.mkdtemp(dir = folder)
+            inner_folder = tempfile.mkdtemp(dir=folder)
             for k in range(0, self.files_per_folder):
                 file = open("{}/SAMPLE_{}.fits".format(inner_folder, k), "w")
                 file.write("SAMPLE DATA @ {}/SAMPLE_{}.fits".format(inner_folder, k))
@@ -36,5 +39,7 @@ class TestUtilFunctions(unittest.TestCase):
 
         self.assertEqual(len(files_in_folder), self.folders_per_layer* self.files_per_folder, "Should be %s" % (self.folders_per_layer* self.files_per_folder))
 
+
 if __name__ == '__main__':
-    unittest.main()
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestUtilFunctions)
+    unittest.TextTestRunner(verbosity=2).run(suite)

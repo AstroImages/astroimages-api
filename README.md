@@ -14,37 +14,67 @@ Usage
 
 Clone the repo:
 
-    git clone https://github.com/AstroImages/astroimages-api/
-    cd astroimages-api
+```console
+$ git clone https://github.com/AstroImages/astroimages-api/
+$ cd astroimages-api
+```
 
-Create virtualenv:
 
-    virtualenv -p python3 env
-    source env/bin/activate
-    pip3 install -r requirements.txt
+Create and activate virtualenv:
+
+```console
+$ virtualenv -p python3 env
+$ source env.sh
+(env) $ pip3 install -r requirements.txt
+```
 
 Run the server via CLI
 
-    ./start-server.sh
+```console
+(env) $ ./start-server.sh
+```
     
-Or run the docker image
+Or build the docker image
 
-    # build: 
-    docker build -t astroimages-api:latest .
-    # run silent
-    docker run -d -p 5000:5000 astroimages-api
-    # run with output
-    docker run --rm -ti -p 5000:5000 astroimages-api
+```console
+(env) $ docker build -t astroimages-api:latest .
+```
+Then run the docker image silently
 
-Try the endpoints:
+```console
+(env) $ docker run -d -p 5000:5000 astroimages-api
+```
+Or verbose
 
-    ./tests/start-tests-fits.sh
+```console
+(env) $ docker run --rm -ti -p 5000:5000 astroimages-api
+```
+
+And finally try the endpoints:
+
+```console
+(env) $ ./tests/start-tests-fits.sh
+```
 
 ## Testing
 
 To run unit tests:
 
-    python -m unittest discover test/unit -v
+```console
+(env) $ python -m unittest discover test/unit -v
+```
+
+## Author
+
+**Rodrigo de Souza**
+
+* Website: http://www.rodrigosouza.net.br
+* Github: [@rsouza01](https://github.com/rsouza01)
+* LinkedIn: [@rsouza01](https://linkedin.com/in/rsouza01)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 
 ## References
@@ -59,7 +89,12 @@ To run unit tests:
  - https://realpython.com/python-testing/
  - https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
  - https://pythontesting.net/framework/unittest/unittest-introduction
+ - https://www.patricksoftwareblog.com/unit-testing-a-flask-application/ 
+ - https://dev.to/paurakhsharma/flask-rest-api-part-6-testing-rest-apis-4lla 
+ - https://pybit.es/simple-flask-api.html
+ - https://fgimian.github.io/blog/2014/04/10/using-the-python-mock-library-to-fake-regular-functions-during-tests/
 
+ 
  ### Github actions
   - https://sourcery.ai/blog/github-actions/
 

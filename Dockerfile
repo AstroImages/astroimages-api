@@ -23,4 +23,4 @@ COPY ./src /app
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "app.py" ]
+CMD [ "server.py" ]
