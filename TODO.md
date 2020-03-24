@@ -7,3 +7,4 @@
 ## Low priority
 - Add coveralls checking to projects
 - Add automation for creating docker image on CICD flow (via Github Action)
+- Add secrets in HashiCorp vault for learning purposes
