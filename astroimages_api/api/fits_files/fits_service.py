@@ -3,7 +3,11 @@ from astroimages_fits.fits_util_functions import extract_metadata_from_fits_file
 
 
 class FitsFileService:
-    def __init__(self, folder):
+
+    def __init__(self, folder, file_handler):
+
+        self.file_handler = file_handler
+
         self.folder = folder
         self.files = []
         self.FITS_EXTENSION = '.fits'

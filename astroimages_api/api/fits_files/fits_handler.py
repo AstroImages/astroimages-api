@@ -7,9 +7,16 @@ from flask import jsonify
 # from astroimages_fits.fits_util_functions import extract_metadata_from_fits_file
 from astroimages_api.api.fits_files.fits_service import FitsFileService
 
+from astroimages_file_drivers.factory import get_file_driver
+from astroimages_file_drivers.handler_enums import FILE_HANDLER_TYPE
+
 
 def get_fits_files():
-    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'])
+
+    # TODO: FILE HANDLER TYPE should be injected (rsouza01)
+    file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
+
+    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'], file_handler)
     fits_files = fitsFileService.get_fits_files()
 
     return jsonify(
@@ -20,7 +27,10 @@ def get_fits_files():
 
 
 def get_fits_file(fits_file_id):
-    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'])
+    # TODO: FILE HANDLER TYPE should be injected (rsouza01)
+    file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
+
+    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'], file_handler)
     fits_files = fitsFileService.get_fits_files()
 
     fits_file = [fits_file for fits_file in fits_files if fits_file['id'] == fits_file_id]
