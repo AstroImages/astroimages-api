@@ -20,7 +20,7 @@ class TestFitsFileService(unittest.TestCase):
         # input("Press Enter to continue...")
 
         # TODO: FILE HANDLER TYPE should be injected (rsouza01)
-        file_handler = get_file_driver(FILE_HANDLER_TYPE.NULL)
+        file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
 
         self.fitsFileService = FitsFileService(self.folder_handler.name, file_handler)
 

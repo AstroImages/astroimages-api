@@ -1,7 +1,10 @@
 # TODO
 
+## Done
+
 ## High Priority
 
+- Better tests with mocks.
 - Check https://github.com/minio/minio for cloud native storage.
 
 ## Low priority
