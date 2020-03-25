@@ -14,9 +14,9 @@ from astroimages_file_drivers.handler_enums import FILE_HANDLER_TYPE
 def get_fits_files():
 
     # TODO: FILE HANDLER TYPE should be injected (rsouza01)
-    file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
+    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'],
+                                      get_file_driver(FILE_HANDLER_TYPE.LOCAL))
 
-    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'], file_handler)
     fits_files = fitsFileService.get_fits_files()
 
     return jsonify(
@@ -28,9 +28,9 @@ def get_fits_files():
 
 def get_fits_file(fits_file_id):
     # TODO: FILE HANDLER TYPE should be injected (rsouza01)
-    file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
+    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'],
+                                      get_file_driver(FILE_HANDLER_TYPE.LOCAL))
 
-    fitsFileService = FitsFileService(os.environ['FITS_FOLDER'], file_handler)
     fits_files = fitsFileService.get_fits_files()
 
     fits_file = [fits_file for fits_file in fits_files if fits_file['id'] == fits_file_id]
