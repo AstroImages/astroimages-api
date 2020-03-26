@@ -76,6 +76,10 @@ To run unit tests:
 * Github: [@rsouza01](https://github.com/rsouza01)
 * LinkedIn: [@rsouza01](https://linkedin.com/in/rsouza01)
 
+## Tools
+
+- Banner made with BannerSnack
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
@@ -106,5 +110,4 @@ License
 -------
 
 Astroimages-api is released under the [MIT License](http://www.opensource.org/licenses/MIT).
-
 
