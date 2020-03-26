@@ -103,6 +103,6 @@ Give a ⭐️ if this project helped you!
 License
 -------
 
-MIT, see LICENSE file
+Astroimages-api is released under the [MIT License](http://www.opensource.org/licenses/MIT).
 
 
