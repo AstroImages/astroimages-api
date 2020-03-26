@@ -1,3 +1,5 @@
+![Logo](ASTROIMAGES-API.png)
+
 AstroImages API (astroimages-api)
 =================================
 
