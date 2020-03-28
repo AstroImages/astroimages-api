@@ -9,6 +9,8 @@ AstroImages API (astroimages-api)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AstroImages_astroimages-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=AstroImages_astroimages-api)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AstroImages/astroimages-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AstroImages/astroimages-api/context:python)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AstroImages/astroimages-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AstroImages/astroimages-api/?branch=master)
+[![Build Status](https://travis-ci.com/AstroImages/astroimages-api.svg?branch=master)](https://travis-ci.com/AstroImages/astroimages-api)
+
 
 REST API for listing processed images
 
