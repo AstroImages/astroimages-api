@@ -1,4 +1,3 @@
-# from astroimages_api.util.file_system import list_files_in_folder
 from astroimages_fits.fits_util_functions import extract_metadata_from_fits_file
 
 
@@ -20,7 +19,6 @@ class FitsFileService:
         string[]: List all files in a directory using os.listdir.
 
         """
-        # fits_file_names = list_files_in_folder(self.folder, self.FITS_EXTENSION)
         fits_file_names = self.file_handler.get_files(self.folder, self.FITS_EXTENSION)
 
         self.files = [

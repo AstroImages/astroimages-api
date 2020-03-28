@@ -34,17 +34,17 @@ def initialize_app(flask_app):
 
 def main():
     initialize_app(rest_app)
-    log.info('>>>>> Starting development server at http://{}/api/ <<<<<'.format(rest_app.config['SERVER_NAME']))
+    log.info('Starting development server at http://{}/api/'.format(rest_app.config['SERVER_NAME']))
     log.info('FITS_FOLDER: {}'.format(os.environ['FITS_FOLDER']))
 
     DOCKER_CONTAINER = os.environ.get('DOCKER_CONTAINER', False)
 
     if DOCKER_CONTAINER == 'true':
         rest_app.logger.info('Running inside container')
-        rest_app.run(debug=True, host='0.0.0.0')
+        rest_app.run(host='0.0.0.0')
     else:
         rest_app.logger.info('Running standalone container')
-        rest_app.run(debug=True)
+        rest_app.run()
 
 
 if __name__ == '__main__':
