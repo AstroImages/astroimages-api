@@ -1,3 +1,5 @@
+![Logo](ASTROIMAGES-API.png)
+
 AstroImages API (astroimages-api)
 =================================
 
@@ -6,6 +8,7 @@ AstroImages API (astroimages-api)
 ![Python application](https://github.com/AstroImages/astroimages-api/workflows/Astroimages-API/badge.svg?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AstroImages_astroimages-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=AstroImages_astroimages-api)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AstroImages/astroimages-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AstroImages/astroimages-api/context:python)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/AstroImages/astroimages-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/AstroImages/astroimages-api/?branch=master)
 [![Build Status](https://travis-ci.com/AstroImages/astroimages-api.svg?branch=master)](https://travis-ci.com/AstroImages/astroimages-api)
 
 
@@ -75,6 +78,10 @@ To run unit tests:
 * Github: [@rsouza01](https://github.com/rsouza01)
 * LinkedIn: [@rsouza01](https://linkedin.com/in/rsouza01)
 
+## Tools
+
+- Banner made with BannerSnack
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
@@ -104,6 +111,5 @@ Give a ⭐️ if this project helped you!
 License
 -------
 
-MIT, see LICENSE file
-
+Astroimages-api is released under the [MIT License](http://www.opensource.org/licenses/MIT).
 

@@ -5,6 +5,9 @@ import ntpath
 from astroimages_api.api.fits_files.fits_service import FitsFileService
 import astroimages_fits.fits_test_util_functions as ftuf
 
+from astroimages_file_drivers.factory import get_file_driver
+from astroimages_file_drivers.handler_enums import FILE_HANDLER_TYPE
+
 
 class TestFitsFileService(unittest.TestCase):
 
@@ -16,7 +19,10 @@ class TestFitsFileService(unittest.TestCase):
         # print(self.files_list)
         # input("Press Enter to continue...")
 
-        self.fitsFileService = FitsFileService(self.folder_handler.name)
+        # TODO: FILE HANDLER TYPE should be injected (rsouza01)
+        file_handler = get_file_driver(FILE_HANDLER_TYPE.LOCAL)
+
+        self.fitsFileService = FitsFileService(self.folder_handler.name, file_handler)
 
     def tearDown(self):
         self.folder_handler.cleanup()

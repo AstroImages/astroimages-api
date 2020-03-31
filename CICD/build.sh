@@ -5,7 +5,7 @@ clear
 # exit when any command fails
 set -e
 
-export PYTHONPATH=$PYTHONPATH:../astroimages-fits/
+export PYTHONPATH=$PYTHONPATH:../astroimages-fits/:../astroimages-file-drivers
 
 # export FITS_FOLDER=${PWD%/*}/FITS_FOLDER/
 
