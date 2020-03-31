@@ -25,4 +25,4 @@ importlib-metadata==1.5.0
 itsdangerous==1.1.0
 zipp==3.1.0
 astroimages-fits==0.2.4
-astroimages-file-drivers==0.1.1
+astroimages-file-drivers==0.1.2
