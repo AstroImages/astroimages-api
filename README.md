@@ -18,7 +18,7 @@ Build Status
 
 ![Python application](https://github.com/AstroImages/astroimages-api/workflows/Astroimages-API/badge.svg?branch=master)
 ![Daily Build](https://github.com/AstroImages/astroimages-api/workflows/Daily%20Build/badge.svg)
-
+![Nightly Build](https://github.com/AstroImages/astroimages-api/workflows/Nightly%20Build/badge.svg)
 
 
 Usage
