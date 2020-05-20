@@ -1,8 +1,8 @@
-name: "Daily Build"
+name: "Nightly Build"
 
 on:
   schedule:
-    - cron:  '0 23 * * *'
+    - cron:  '0 11 * * *'
 
 jobs:
   build:
