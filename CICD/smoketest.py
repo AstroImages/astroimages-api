@@ -8,14 +8,17 @@ from prettytable import PrettyTable
 server_url = 'http://localhost:5000'
 
 
-def perform_test(step_descr, text, endpoint, expected_ret_code, start_time):
-    print(text)
+def perform_test(step_descr, text, endpoint, expected_ret_code, start_time, verbose=False):
+    if verbose:
+        print(text)
     response = requests.get(endpoint)
     status_code = response.status_code
-    print('RETURNED STATUS CODE: {}'.format(status_code))
+    if verbose:
+        print('RETURNED STATUS CODE: {}'.format(status_code))
     if status_code != expected_ret_code:
         return [step_descr, 'FAILED', timeit.default_timer() - start_time, endpoint]
-    print('-'*120)
+    if verbose:
+        print('-'*120)
 
 
 def test_fits_files():
@@ -40,9 +43,6 @@ def test_fits_files():
         '{}/api/v1/fits-files/{}'.format(server_url, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'),
         404, start_time)
 
-    print('fits-files OK')
-    print('-'*120)
-
     return [step_descr,
             'SUCCESS',
             timeit.default_timer() - start_time,
@@ -62,6 +62,7 @@ def print_summary_header():
 
 
 def print_summary_footer():
+    print('\n\n')
     print('APPLICATION: AstroImages API')
     print('RELEASE: 1.0')
     print('ENVIRONMENT: GITHUB')
@@ -73,7 +74,11 @@ def main():
     print_execution_header()
 
     table = PrettyTable()
-    table.field_names = ['TEST CASE NAME', 'STATUS', 'EXECUTION TIME', 'ENDPOINT']
+    table.field_names = ['TEST CASE NAME'.center(30, ' '),
+                         'STATUS',
+                         'EXECUTION TIME',
+                         'ENDPOINT'.center(51, ' ')]
+
     table.add_row(test_fits_files())
 
     print(table)
