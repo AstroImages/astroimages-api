@@ -1,4 +1,4 @@
-name: Astroimages-API
+name: Daily build
 
 on:
   schedule:    

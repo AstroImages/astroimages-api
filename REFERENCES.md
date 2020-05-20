@@ -18,3 +18,4 @@
  
 ## Github actions
   - https://sourcery.ai/blog/github-actions/
+  - https://jasonet.co/posts/scheduled-actions/
