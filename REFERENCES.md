@@ -19,3 +19,4 @@
 ## Github actions
   - https://sourcery.ai/blog/github-actions/
   - https://jasonet.co/posts/scheduled-actions/
+  - https://github.com/marketplace/actions/send-email
