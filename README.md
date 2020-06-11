@@ -76,6 +76,12 @@ To run unit tests:
 (env) $ python -m unittest discover test/unit -v
 ```
 
+For component tests:
+
+```console
+(env) $ python -m unittest discover test/component -v
+```
+
 ## Author
 
 **Rodrigo de Souza**
