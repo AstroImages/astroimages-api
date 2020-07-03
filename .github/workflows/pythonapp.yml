@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Cloning the project
+      uses: actions/checkout@v2
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
@@ -31,16 +32,25 @@ jobs:
     - name: Test with build script
       run: |
         ./CICD/build.sh
-    - name: Send mail
+    - name: Send mail on Success
+      if: ${{ success() }}    
       uses: dawidd6/action-send-mail@v2
       with:
         server_address: smtp.gmail.com
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: Github Actions job result
+        subject: ${{github.repository}} build result - SUCCESS
         # Literal body:
-        body: Build job of ${{github.repository}} completed successfully!
+        body: |
+          Build job of ${{github.repository}} completed successfully!
+
+          JOB_CONTEXT: ${{ toJson(job) }}
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}          
+
         to: rsouza01@gmail.com
         from: AstroImages API Build
         # Optional content type (defaults to text/plain):
