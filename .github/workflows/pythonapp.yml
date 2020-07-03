@@ -45,11 +45,11 @@ jobs:
         body: |
           Build job of ${{github.repository}} completed successfully!
 
-          JOB_CONTEXT: ${{ toJson(job) }}
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}          
+          JOB_CONTEXT: ${{ toJson(job) }}<br/>
+          STEPS_CONTEXT: ${{ toJson(steps) }}<br/>
+          RUNNER_CONTEXT: ${{ toJson(runner) }}<br/>
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}<br/>
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}<br/> 
 
         to: rsouza01@gmail.com
         from: AstroImages API Build
