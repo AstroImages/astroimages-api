@@ -43,7 +43,7 @@ jobs:
         subject: ${{github.repository}} build result - SUCCESS
         # Literal body:
         body: |
-          Build job of ${{github.repository}} completed successfully!
+          Build job of ${{github.repository}} completed successfully!<br/><br/>
 
           JOB_CONTEXT: ${{ toJson(job) }}<br/>
           STEPS_CONTEXT: ${{ toJson(steps) }}<br/>
