@@ -55,3 +55,27 @@ jobs:
         from: AstroImages API Build
         # Optional content type (defaults to text/plain):
         content_type: text/html
+
+    - name: Send mail on Failure
+      if: ${{ failure() }}    
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: ${{github.repository}} build result - Failure
+        # Literal body:
+        body: |
+          Build job of ${{github.repository}} completed with errors!<br/><br/>
+
+          JOB_CONTEXT: ${{ toJson(job) }}<br/>
+          STEPS_CONTEXT: ${{ toJson(steps) }}<br/>
+          RUNNER_CONTEXT: ${{ toJson(runner) }}<br/>
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}<br/>
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}<br/> 
+
+        to: rsouza01@gmail.com
+        from: AstroImages API Build
+        # Optional content type (defaults to text/plain):
+        content_type: text/html
